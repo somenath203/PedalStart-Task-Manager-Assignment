@@ -28,7 +28,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { format } from 'date-fns';
+import moment from 'moment';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const Page = () => {
@@ -48,7 +50,7 @@ const Page = () => {
 
   const [getTitleToBeEdited, setGetTitleToBeEdited] = useState('');
   const [getDescriptionToBeEdited, setGetDescriptionToBeEdited] = useState('');
-  const [getDateToBeEdited, setGetDateToBeEdited] = useState('');
+  const [getDateToBeEdited, setGetDateToBeEdited] = useState(new Date());
 
 
   const [displayEditTaskModal, setDisplayEditTaskModal] = useState(false);
@@ -219,9 +221,6 @@ const Page = () => {
     e.preventDefault();
 
     try {
-      console.log(getTitleToBeEdited);
-      console.log(getDescriptionToBeEdited);
-      console.log(getDateToBeEdited);
 
       const editTaskObj = {};
 
@@ -301,7 +300,7 @@ const Page = () => {
                 <CardTitle className="text-orange-600">{task?.title}</CardTitle>
                 <CardDescription>
                   <span className="mt-10">
-                    Due date of the Task: {task?.dueDate}
+                    Due date of the Task: {moment(task?.dueDate).format('DD-MM-YYYY')}
                   </span>
                 </CardDescription>
               </CardHeader>
@@ -389,7 +388,7 @@ const Page = () => {
               </p>
               <p className="text-center flex flex-col gap-1">
                 Card Due Date:{' '}
-                <span className="font-bold">{particularTaskDueDate}</span>
+                <span className="font-bold">{moment(particularTaskDueDate).format('DD-MM-YYYY')}</span>
               </p>
             </div>}
           </AlertDialogDescription>
@@ -435,12 +434,13 @@ const Page = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label>Edit Task</Label>
-                <input
-                  type="date"
-                  onChange={(e) => setGetDateToBeEdited(e.target.value)}
-                  className="p-2 rounded-md border-2 border-orange-500"
-                  min={format(new Date(), 'yyyy-MM-dd')}
+                <Label>Due Date of Task</Label>
+                <DatePicker
+                  selected={getDateToBeEdited}
+                  onChange={(date) => setGetDateToBeEdited(date)}
+                  minDate={new Date()}
+                  className="p-2 rounded-md border-2 border-orange-500 w-full"
+                  required
                 />
               </div>
 

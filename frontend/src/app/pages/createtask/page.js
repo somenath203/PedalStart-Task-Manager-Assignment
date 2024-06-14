@@ -6,14 +6,15 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { toast } from 'react-toastify';
-import { format } from 'date-fns';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const Page = () => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [dueDate, setDueDate] = useState('');
+  const [dueDate, setDueDate] = useState(new Date());
 
   const [ loading, setLoading] = useState();
 
@@ -99,11 +100,11 @@ const Page = () => {
         <div className="flex flex-col gap-2">
 
           <Label>Due date of Task</Label>
-          <input
-            type="date"
-            onChange={(e) => setDueDate(e.target.value)}
-            className="p-2 rounded-md border-2 border-orange-500"
-            min={format(new Date(), 'yyyy-MM-dd')}
+          <DatePicker
+            selected={dueDate}
+            onChange={(date) => setDueDate(date)}
+            minDate={new Date()}
+            className="p-2 rounded-md border-2 border-orange-500 w-full"
             required
           />
 
