@@ -370,7 +370,7 @@ const Page = () => {
         open={openViewDetailsOfTaskModal}
         onOpenChange={setOpenViewDetailsOfTaskModal}
       >
-        <AlertDialogContent>
+        <AlertDialogContent className="overflow-auto max-h-[90vh]">
           <AlertDialogHeader>
             <span className="m-auto">
               <AlertDialogTitle>Details of the Task</AlertDialogTitle>
@@ -379,15 +379,15 @@ const Page = () => {
           <AlertDialogDescription>
             {loadingViewTask ? <p className='flex items-center justify-center mt-2 text-2xl text-orange-600 transition-all duration-500 animate-spin'><i className="fa-solid fa-rotate-right"></i></p> : <div className="flex flex-col gap-3 items-center justify-center text-lg">
               <p className="text-center flex flex-col gap-1">
-                Card Title:{' '}
+                Task Title:{' '}
                 <span className="font-bold">{particularTaskTitle}</span>
               </p>
               <p className="text-center flex flex-col gap-1">
-                Card Description:{' '}
+                Task Description:{' '}
                 <span className="font-bold">{particularTaskDescription}</span>
               </p>
               <p className="text-center flex flex-col gap-1">
-                Card Due Date:{' '}
+                Task Due Date:{' '}
                 <span className="font-bold">{moment(particularTaskDueDate).format('DD-MM-YYYY')}</span>
               </p>
             </div>}
