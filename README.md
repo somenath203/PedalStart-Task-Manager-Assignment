@@ -75,3 +75,8 @@ This will start the NextJS application at `http://localhost:3000`.
 01) Live Preview: https://task-manager-pedalstart.vercel.app/
 02) Deployed Backend URL of the ExpressJS app: https://task-manager-pedalstart-assignment.onrender.com/
 3) Postman documentation of the Backend ExpressJS API: https://documenter.getpostman.com/view/14623339/2sA3XQggic
+
+## Demo Video of the Application
+
+https://github.com/somenath203/PedalStart-Task-Manager-Assignment/assets/81456073/ecb12014-a71d-4774-b90e-d94073cc9169
+
