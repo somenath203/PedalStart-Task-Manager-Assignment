@@ -15,7 +15,7 @@ ExpressJS
 ### 03) For Database
 MongoDB
 
-## 04) Running the Project locally.
+## 04) Running the Project locally
 
 ### Step 1
 
@@ -34,7 +34,7 @@ npm i
 ```
 This will install all the necessary dependencies required to run the backend of the application.
 
-After all the necessary dependencies are installed, open an IDE of your choice (VSCode Preffered) inside the backend folder. After the IDE is opened inside the backend folder, create a `.env` file, then,
+After all the necessary dependencies are installed, open an IDE of your choice (VSCode Preffered) inside the backend folder. After the IDE is opened inside the backend folder, create a `.env` file in the root location of the folder, then,
 inside the `.env` file, paste the `MONGO_URI` like this:
 ```
 MONGO_URI=your_mongo_uri
@@ -56,7 +56,7 @@ npm i
 This will install all the necessary dependencies required to run the frontend web app of the application.
 
 After all the necessary dependencies are installed, open an IDE of your choice (VSCode Preffered) inside the backend folder. After the IDE is opened inside the backend folder, create a `.env.local` file, then,
-inside the `.env` file, paste the `BACKEND_NODEJS_BASE_URL` like this:
+inside the `.env` file in the root location of the folder, paste the `BACKEND_NODEJS_BASE_URL` like this:
 ```
 NEXT_PUBLIC_BACKEND_NODEJS_URL=http://localhost:5000
 ```
