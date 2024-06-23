@@ -30,7 +30,7 @@ const Page = () => {
 
         setLoading(true);
 
-        const { data } = await axios.post(`http://localhost:5000/register`, {
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_NODEJS_URL}/register`, {
           fullname: fullName,
           email: emailId,
           password: password

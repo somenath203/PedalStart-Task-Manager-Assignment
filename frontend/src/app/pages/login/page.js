@@ -31,7 +31,7 @@ const Page = () => {
         
         setLoading(true);
 
-        const { data } = await axios.post(`http://localhost:5000/login`, {
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_NODEJS_URL}/login`, {
           email: emailId,
           password: password
         });
