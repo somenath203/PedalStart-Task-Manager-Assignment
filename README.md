@@ -15,7 +15,7 @@ ExpressJS
 ### 03) For Database
 MongoDB
 
-## 04) Links
+## Links
 
 01) Live Preview: https://task-manager-pedalstart.vercel.app/
 02) Deployed Backend URL of the ExpressJS app: https://task-manager-pedalstart-assignment.onrender.com/
