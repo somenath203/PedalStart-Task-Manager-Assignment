@@ -1,6 +1,30 @@
 import Link from 'next/link';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
-const Navbar = () => {
+const ProtectedNavbar = () => {
+
+  const router = useRouter();
+
+  const logoutUser = () => {
+
+    Cookies.remove('token');
+
+    router.push('/pages/login');
+
+    toast.success('You are logged out successfully!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+
+  };
+
   return (
     <>
       <header className="text-gray-600">
@@ -16,6 +40,9 @@ const Navbar = () => {
             <Link href='/pages/createtask'>
                 <span className="mr-5 hover:text-orange-600 transition-all duration-150">Create Task</span>
             </Link>
+            <button onClick={logoutUser}>
+                <span className="mr-5 hover:text-orange-600 transition-all duration-150"><i className="ri-logout-circle-r-line text-xl"></i></span>
+            </button>
           </nav>
         </div>
       </header>
@@ -23,4 +50,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default ProtectedNavbar;

@@ -5,7 +5,7 @@ const getAllTasks = async (req, res) => {
 
     try {
         
-        const getTasks = await Task.find({});
+        const getTasks = await Task.find({ createdBy: req?.body?.idOfTheUser });
 
         res.status(200).send({
             success: true,
@@ -30,7 +30,7 @@ const getParticularTask = async (req, res) => {
 
     try {
         
-        const getTask = await Task.findById(req?.params?.taskId);
+        const getTask = await Task.findOne({ _id: req?.params?.taskId, createdBy: req.body.idOfTheUser });
 
         if(!getTask) {
             return res.status(500).send({
@@ -66,7 +66,8 @@ const createTask = async (req, res) => {
         const createTask = await Task.create({
             title: title,
             description: description,
-            dueDate: duedate
+            dueDate: duedate,
+            createdBy: req.body.idOfTheUser
         });
 
         res.status(201).send({
@@ -91,7 +92,7 @@ const updateTask = async (req, res) => {
 
     try {
 
-        const getTask = await Task.findById(req?.params?.taskId);
+        const getTask = await Task.findOne({ _id: req?.params?.taskId, createdBy: req.body.idOfTheUser });
 
         if(!getTask) {
             return res.status(500).send({
@@ -109,7 +110,7 @@ const updateTask = async (req, res) => {
         };
 
 
-        const updatedTask = await Task.findByIdAndUpdate({_id: req?.params?.taskId}, updateTask, { new: true });
+        const updatedTask = await Task.findOneAndUpdate({_id: req?.params?.taskId, createdBy: req.body.idOfTheUser}, updateTask, { new: true });
 
         res.status(200).send({
             success: true,
@@ -133,7 +134,7 @@ const deleteTask = async (req, res) => {
 
     try {
 
-        const getTask = await Task.findById(req?.params?.taskId);
+        const getTask = await Task.findOne({ _id: req?.params?.taskId, createdBy: req.body.idOfTheUser });
 
         if(!getTask) {
             return res.status(500).send({
@@ -142,7 +143,7 @@ const deleteTask = async (req, res) => {
             });
         }
 
-        await Task.findByIdAndDelete(req?.params?.taskId);
+        await Task.findOneAndDelete({ _id: req?.params?.taskId, createdBy: req.body.idOfTheUser });
 
         res.status(200).send({
             success: true,

@@ -10,6 +10,10 @@ const taskManagerTask = new mongoose.Schema({
     },
     dueDate: {
         type: String
+    },
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
     }
 }, {
     timestamps: true

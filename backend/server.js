@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const { connectToDB } = require('./utils/dbConnect');
+const userRoutes = require('./routes/userRoutes');
 const taskManagementRoutes = require('./routes/taskManagementRouters');
 
 connectToDB();
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 
+app.use(userRoutes);
 app.use(taskManagementRoutes);
 
 
