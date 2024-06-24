@@ -21,6 +21,7 @@ MongoDB
 02) Deployed Backend URL of the ExpressJS app: https://task-manager-pedalstart-assignment.onrender.com/
 3) Postman documentation of the Backend ExpressJS API: https://documenter.getpostman.com/view/14623339/2sA3XQggic
 
+## Demo video of the application
 
-
+https://github.com/somenath203/PedalStart-Task-Manager-Assignment/assets/81456073/24d9bef1-d0e3-4cd1-bce1-5832613a9b7f
 
